@@ -2,8 +2,6 @@ var socket = io(),
 	name   = getQueryVariable("name") || "Anonymous",
 	room   = getQueryVariable("room");
 
-console.log(name + " " + room);
-
 socket.on("connect", function() {
 	console.log("connected to socket.io!");
 });
@@ -23,6 +21,7 @@ socket.on("message", function(message) {
 	messages.append(h1);
 	messages.append(p);
 });
+
 
 var form = document.getElementById("message-form"),
 	input = form.getElementsByTagName("input")[0];
