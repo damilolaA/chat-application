@@ -20,8 +20,10 @@ io.on("connection", function(socket) {
 		text: "Welcome to the chat application",
 		timestamp: moment().valueOf()
 	});
+
+
 });
 
-http.listen(3000, function() {
+http.listen(process.env.PORT || 3000, function() {
 	console.log("server started");
 });

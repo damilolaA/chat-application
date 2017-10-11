@@ -13,10 +13,9 @@ socket.on("message", function(message) {
 		p        = document.createElement("p");
 		strong   = document.createElement("strong");
 
-	p.innerHTML = message.text;
-	strong.innerHTML = momentTimestamp.local().format('h:mm a');
+	p.innerHTML = ("<strong>" + momentTimestamp.local().format('h:mm a') + ":" + "</strong>"+ " " + message.text);
 
-	messages.append(strong, p);
+	messages.append(p);
 });
 
 var form = document.getElementById("message-form"),
