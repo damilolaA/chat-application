@@ -5,14 +5,18 @@ socket.on("connect", function() {
 });
 
 socket.on("message", function(message) {
+	var momentTimestamp = moment.utc(message.timestamp);
 	console.log("New message:");
 	console.log(message.text);
 
 	var messages = document.getElementsByClassName("messages")[0],
 		p        = document.createElement("p");
+		strong   = document.createElement("strong");
 
 	p.innerHTML = message.text;
-	messages.append(p);
+	strong.innerHTML = momentTimestamp.local().format('h:mm a');
+
+	messages.append(strong, p);
 });
 
 var form = document.getElementById("message-form"),
