@@ -7,6 +7,12 @@ socket.on("connect", function() {
 socket.on("message", function(message) {
 	console.log("New message:");
 	console.log(message.text);
+
+	var messages = document.getElementsByClassName("messages")[0],
+		p        = document.createElement("p");
+
+	p.innerHTML = message.text;
+	messages.append(p);
 });
 
 var form = document.getElementById("message-form"),
