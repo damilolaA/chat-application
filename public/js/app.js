@@ -4,7 +4,16 @@ var socket = io(),
 
 socket.on("connect", function() {
 	console.log("connected to socket.io!");
+
+	socket.emit("joinRoom", {
+		name: name,
+		room: room
+	});
 });
+
+var roomName = document.getElementsByClassName("room-title")[0];
+	
+roomName.innerHTML = room;
 
 socket.on("message", function(message) {
 	var momentTimestamp = moment.utc(message.timestamp);
@@ -12,7 +21,7 @@ socket.on("message", function(message) {
 	console.log(message.text);
 
 	var messages = document.getElementsByClassName("messages")[0],
-		p        = document.createElement("p");
+		p        = document.createElement("p"),
 		h1       = document.createElement("h3");
 
 	h1.innerHTML = message.name;
