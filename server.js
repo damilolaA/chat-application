@@ -22,6 +22,19 @@ io.on("connection", function(socket) {
 		});
 	});
 
+	socket.on("disconnect", function() {
+		var userData = clientInfo[socket.id];
+
+		if(userData !== undefined) {
+			socket.leave(userData.room)
+			io.to(userData.room).emit("message", {
+				name: "System",
+				text: userData.name + " has left!",
+				timestamp: moment().valueOf()
+			});
+		};
+	})
+
 	socket.on("message", function(message) {
 		console.log("Message received: " + message.text);
 
@@ -34,8 +47,6 @@ io.on("connection", function(socket) {
 		text: "Welcome to the chat application",
 		timestamp: moment().valueOf()
 	});
-
-
 });
 
 http.listen(process.env.PORT || 3000, function() {
