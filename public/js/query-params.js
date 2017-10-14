@@ -12,3 +12,4 @@ function getQueryVariable(variable) {
 
 	return undefined;
 }
+

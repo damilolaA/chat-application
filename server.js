@@ -1,4 +1,5 @@
 var express = require("express"),
+	port    = process.env.PORT || 3000,
 	app     = express(),
 	http    = require("http").Server(app),
 	io      = require("socket.io")(http),
@@ -49,6 +50,6 @@ io.on("connection", function(socket) {
 	});
 });
 
-http.listen(process.env.PORT || 3000, function() {
+http.listen(port, function() {
 	console.log("server started");
 });
