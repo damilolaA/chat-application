@@ -22,13 +22,13 @@ socket.on("message", function(message) {
 
 	var messages = document.getElementsByClassName("messages")[0],
 		p        = document.createElement("p"),
-		h1       = document.createElement("h3");
+		h1       = document.createElement("h5");
 		li       = document.createElement("li");
 
 	li.classList.add("list-group-item");
 
 	h1.innerHTML = message.name;
-	p.innerHTML = ("<strong>" + momentTimestamp.local().format('h:mm a') + ":" + "</strong>"+ " " + message.text);
+	p.innerHTML = ("<b>" + momentTimestamp.local().format('h:mm a') + ":" + "</b>"+ " " + message.text);
 
 	li.append(h1);
 	li.append(p);

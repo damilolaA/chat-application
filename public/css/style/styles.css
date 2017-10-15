@@ -4,3 +4,11 @@
 	display: flex;
 	align-items: center;
 }
+
+h1 {
+	margin: 25px 0;
+}
+
+#chat {
+	margin-top: 35px;
+}
