@@ -34,6 +34,7 @@ socket.on("message", function(message) {
 	li.append(p);
 
 	messages.append(li);
+    console.log('i got here');
 });
 
 
